@@ -1,6 +1,6 @@
-# test-project
+# Vue Simple Markup Editor
 
-> A Vue.js project
+> 長文をざっくりマークアップするやつ
 
 ## Build Setup
 
@@ -25,3 +25,9 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# 変換ルール
+* 空白行を挟むと<p>に変換
+* 句読点＋改行または改行のみ→<br>
+* ■テキスト → <b>■テキスト</b>
+* ・から始まる行と段落をリストに変換
