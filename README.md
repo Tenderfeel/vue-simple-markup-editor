@@ -27,7 +27,7 @@ npm test
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 # 変換ルール
-* 空白行を挟むと<p>に変換
-* 句読点＋改行または改行のみ→<br>
-* ■テキスト → <b>■テキスト</b>
+* 空白行を挟むと&lt;p&gt;に変換
+* 句読点＋改行または改行のみ→&lt;br&gt;
+* ■テキスト → &lt;b&gt;■テキスト&lt;/b&gt;
 * ・から始まる行と段落をリストに変換
