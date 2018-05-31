@@ -15,10 +15,10 @@
       <button id="addEm" @click="addEm">em</button>
       <button id="addBold" @click="addBold">Bold</button>
       <label>
-        <input type="checkbox" v-model="isWrapP" @change="handleChange">wrap &lt;p&gt;
+        <input type="checkbox" v-model="isWrapP" @change="update">wrap &lt;p&gt;
       </label>
       <label>
-        <input type="checkbox" v-model="isOneLine" @change="handleChange">oneline
+        <input type="checkbox" v-model="isOneLine" @change="update">oneline
       </label>
 
       <div class="hide-input" v-if="prompt === 'link'">
@@ -50,9 +50,9 @@ export default {
       prompt: null,
       targetBlank: false,
       quotations: [
-        { text: "None", value: 0, quot: "" },
-        { text: "Single", value: 1, quot: "'" },
-        { text: "Double", value: 2, quot: '"' }
+        { text: "None", value: 0 },
+        { text: "Single", value: 1 },
+        { text: "Double", value: 2 }
       ],
       src: "",
       href: ""
@@ -94,7 +94,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["getSelection", "surround"]),
+    ...mapActions(["getSelection", "surround", "update"]),
 
     togglePrompt(target) {
       this.prompt = target;
@@ -137,9 +137,6 @@ export default {
     },
     addStrong() {
       this.surround(["<strong>", "</strong>"]);
-    },
-    handleChange() {
-      this.$store.dispatch("update");
     }
   }
 };

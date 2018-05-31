@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <div id="result">
     <section id="source">
       <h1>Source</h1>
       <textarea v-model="source" cols="30" rows="10" class="output-body" readonly></textarea>
@@ -17,9 +17,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "Preview",
-  data() {
-    return {};
-  },
+
   computed: {
     ...mapState(["preview", "source"])
   }
