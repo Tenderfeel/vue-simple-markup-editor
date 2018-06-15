@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState } from 'vuex'
 
 export default {
   data() {
@@ -50,96 +50,96 @@ export default {
       prompt: null,
       targetBlank: false,
       quotations: [
-        { text: "None", value: 0 },
-        { text: "Single", value: 1 },
-        { text: "Double", value: 2 }
+        { text: 'None', value: 0 },
+        { text: 'Single', value: 1 },
+        { text: 'Double', value: 2 }
       ],
-      src: "",
-      href: ""
-    };
+      src: '',
+      href: ''
+    }
   },
   computed: {
-    ...mapState(["selection"]),
+    ...mapState(['selection']),
     body: {
       get() {
-        return this.$store.state.body;
+        return this.$store.state.body
       },
       set(value) {
-        this.$store.commit("updateBody", value);
+        this.$store.commit('updateBody', value)
       }
     },
     isOneLine: {
       get() {
-        return this.$store.state.isOneLine;
+        return this.$store.state.isOneLine
       },
       set(value) {
-        this.$store.commit("upsateIsOneLine", value);
+        this.$store.commit('updateIsOneLine', value)
       }
     },
     isWrapP: {
       get() {
-        return this.$store.state.isWrapP;
+        return this.$store.state.isWrapP
       },
       set(value) {
-        this.$store.commit("updateIsWrapP", value);
+        this.$store.commit('updateIsWrapP', value)
       }
     },
     isQuot: {
       get() {
-        return this.$store.state.isQuot;
+        return this.$store.state.isQuot
       },
       set(value) {
-        this.$store.commit("updateIsQuot", value);
+        this.$store.commit('updateIsQuot', value)
       }
     }
   },
   methods: {
-    ...mapActions(["getSelection", "surround", "update"]),
+    ...mapActions(['getSelection', 'surround', 'update']),
 
     togglePrompt(target) {
-      this.prompt = target;
+      this.prompt = target
     },
 
     getQuot() {
-      return this.isQuot === 2 ? '"' : this.isQuot === 1 ? "'" : "";
+      return this.isQuot === 2 ? '"' : this.isQuot === 1 ? "'" : ''
     },
 
     addImg() {
       this.surround([
-        "<img src=" +
+        '<img src=' +
           this.getQuot() +
           this.src +
           this.getQuot() +
-          " class=" +
+          ' class=' +
           this.getQuot() +
-          "banner" +
+          'banner' +
           this.getQuot() +
-          ">",
-        ""
-      ]);
+          '>',
+        ''
+      ])
     },
 
     addLink() {
-      let before = "<a href=" + this.getQuot() + this.href + this.getQuot();
+      let before = '<a href=' + this.getQuot() + this.href + this.getQuot()
 
       if (this.targetBlank) {
-        before += " target=" + this.getQuot() + "_blank" + this.getQuot();
+        before += ' target=' + this.getQuot() + '_blank' + this.getQuot()
       }
-      this.href = "";
-      this.surround([before + ">", "</a>"]);
+      this.href = ''
+      this.surround([before + '>', '</a>'])
     },
 
     addEm() {
-      this.surround(["<em>", "</em>"]);
+      this.surround(['<em>', '</em>'])
     },
     addBold() {
-      this.surround(["<b>", "</b>"]);
+      this.surround(['<b>', '</b>'])
     },
     addStrong() {
-      this.surround(["<strong>", "</strong>"]);
+      this.surround(['<strong>', '</strong>'])
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -147,7 +147,7 @@ export default {
   padding: 10px;
   background: #efefef;
 }
-input[type="url"] {
+input[type='url'] {
   width: 70%;
   max-width: 400px;
 }
